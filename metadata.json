@@ -1,0 +1,5 @@
+{
+  "name": "Laksh",
+  "description": "Reminders that call you. Schedule full-screen incoming reminder calls with voice notes, text-to-speech readout, smart snooze, and automatic retries.",
+  "requestFramePermissions": ["microphone"]
+}

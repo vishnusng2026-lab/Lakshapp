@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  body {
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+@keyframes ring-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  70% {
+    transform: scale(1.62);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.62);
+    opacity: 0;
+  }
+}
+
+@keyframes ring-shake {
+  0%, 100% { transform: rotate(0deg); }
+  12% { transform: rotate(-10deg); }
+  24% { transform: rotate(10deg); }
+  36% { transform: rotate(-8deg); }
+  48% { transform: rotate(8deg); }
+  60% { transform: rotate(0deg); }
+}
+
+.animate-ring-pulse {
+  animation: ring-pulse 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.animate-ring-pulse-delayed {
+  animation: ring-pulse 2s cubic-bezier(0.16, 1, 0.3, 1) 0.65s infinite;
+}
+
+.animate-ring-shake {
+  animation: ring-shake 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ring-pulse,
+  .animate-ring-pulse-delayed,
+  .animate-ring-shake {
+    animation: none;
+  }
+}
